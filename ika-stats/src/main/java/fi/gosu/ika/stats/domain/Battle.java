@@ -2,6 +2,7 @@ package fi.gosu.ika.stats.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.ElementCollection;
@@ -32,11 +33,17 @@ public class Battle extends AbstractPersistable<Long> {
     @ElementCollection private List<String> winners;
     @ElementCollection private List<String> losers;
     @ElementCollection private List<String> events;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToMany private List<Troop> troops;
     @OneToOne private Resources loot;
 
     public Battle() {
+        this.attacker = new ArrayList<>();
+        this.defender = new ArrayList<>();
+        this.winners = new ArrayList<>();
+        this.losers = new ArrayList<>();
         this.events = new ArrayList<>();
+        this.troops = new ArrayList<>();
     }
 
     public Long getCompatId() {
@@ -66,7 +73,6 @@ public class Battle extends AbstractPersistable<Long> {
     public List<String> getEvents() {
         return events;
     }
-    @JsonIgnore
     public List<Troop> getTroops() {
         return troops;
     }
