@@ -16,6 +16,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/spyreport/")
+@CrossOrigin
 public class SpyReportController {
 
     @Autowired

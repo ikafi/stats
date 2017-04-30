@@ -16,6 +16,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/battle/")
+@CrossOrigin
 public class BattleController {
 
     @Autowired
