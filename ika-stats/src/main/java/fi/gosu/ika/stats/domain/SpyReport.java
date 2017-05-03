@@ -10,15 +10,14 @@ import java.util.Date;
 /**
  * SpyReport Class
  *
- * Created by Joppe151617 on 30.4.2017.
+ * @author Joppe151617
+ * @since 0.1.0
  */
 @Entity
 public class SpyReport extends AbstractPersistable<Long> {
 
-
-
-
     private Long spyReportId;
+    private Long townId;
     private String playerName;
     private String alliance;
     private String townName;
@@ -38,6 +37,10 @@ public class SpyReport extends AbstractPersistable<Long> {
 
     public Long getSpyReportId() {
         return spyReportId;
+    }
+
+    public Long getTownId() {
+        return townId;
     }
 
     public String getPlayerName() {
@@ -119,6 +122,10 @@ public class SpyReport extends AbstractPersistable<Long> {
 
     public void setSpyReportId(Long spyReportId) {
         this.spyReportId = spyReportId;
+    }
+
+    public void setTownId(Long townId) {
+        this.townId = townId;
     }
 
     public void setPlayerName(String playerName) {

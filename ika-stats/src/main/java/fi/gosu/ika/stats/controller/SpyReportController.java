@@ -11,8 +11,8 @@ import java.util.List;
 /**
  * SpyReport Controller
  *
- * Created by Joppe151617 on 30.4.2017.
- *
+ * @author Joppe151617
+ * @since 0.1.0
  */
 @RestController
 @RequestMapping("/spyreport/")
