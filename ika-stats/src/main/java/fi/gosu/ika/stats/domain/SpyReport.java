@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import java.util.Date;
 
@@ -18,6 +19,8 @@ public class SpyReport extends AbstractPersistable<Long> {
 
     private Long spyReportId;
     private Long townId;
+    @Column(name="townId")
+    private Town town;
     private String playerName;
     private String alliance;
     private String townName;
@@ -41,6 +44,10 @@ public class SpyReport extends AbstractPersistable<Long> {
 
     public Long getTownId() {
         return townId;
+    }
+
+    public Town getTown() {
+        return town;
     }
 
     public String getPlayerName() {
@@ -126,6 +133,10 @@ public class SpyReport extends AbstractPersistable<Long> {
 
     public void setTownId(Long townId) {
         this.townId = townId;
+    }
+
+    public void setTown(Town town) {
+        this.town = town;
     }
 
     public void setPlayerName(String playerName) {

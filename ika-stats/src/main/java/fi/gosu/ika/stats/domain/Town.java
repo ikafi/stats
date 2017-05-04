@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  * Town Class
@@ -14,13 +15,15 @@ import javax.persistence.Entity;
 @Entity
 public class Town extends AbstractPersistable<Long> {
 
-    private Long townId;
+    @Id
+    private Long id;
+    @Override
+    public Long getId() {return id;}
+    public void setId(Long id) { this.id = id;}
+
+
     private int wallLvl;
     private int warehouseLvl;
-
-    public Long getTownId() {
-        return townId;
-    }
 
     public int getWallLvl() {
         return wallLvl;
@@ -30,10 +33,6 @@ public class Town extends AbstractPersistable<Long> {
         return warehouseLvl;
     }
 
-
-    public void setTownId(Long townId) {
-        this.townId = townId;
-    }
 
     public void setWallLvl(int wallLvl) {
         this.wallLvl = wallLvl;
