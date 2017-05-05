@@ -1,7 +1,7 @@
 package fi.gosu.ika.stats.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.data.jpa.domain.AbstractPersistable;
+import org.springframework.data.domain.Persistable;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -13,7 +13,7 @@ import javax.persistence.Id;
  * @since 0.1.0
  */
 @Entity
-public class Town extends AbstractPersistable<Long> {
+public class Town implements Persistable<Long> {
 
     @Id
     private Long id;
@@ -45,6 +45,6 @@ public class Town extends AbstractPersistable<Long> {
     @JsonIgnore
     @Override
     public boolean isNew() {
-        return super.isNew();
+        return false;
     }
 }

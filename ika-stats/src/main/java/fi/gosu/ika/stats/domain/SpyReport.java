@@ -18,8 +18,8 @@ import java.util.Date;
 public class SpyReport extends AbstractPersistable<Long> {
 
     private Long spyReportId;
-    private Long townId;
     @Column(name="townId")
+    private Long townId;
     private Town town;
     private String playerName;
     private String alliance;
