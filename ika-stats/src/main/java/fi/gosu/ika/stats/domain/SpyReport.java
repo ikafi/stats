@@ -19,7 +19,7 @@ public class SpyReport extends AbstractPersistable<Long> {
     private Long spyReportId;
     private Long townId;
     @OneToOne
-    @JoinColumn(name="townId", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "none"))
+    @JoinColumn(name="townId", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "none", value = ConstraintMode.NO_CONSTRAINT))
     private Town town;
     private String playerName;
     private String alliance;
