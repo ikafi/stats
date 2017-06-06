@@ -10,4 +10,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @since 0.1.
  */
 public interface BattleRepository extends JpaRepository<Battle, Long> {
+
+    Battle findByCompatId(Long compatId);
 }

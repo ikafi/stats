@@ -31,15 +31,21 @@ public class BattleService {
     }
 
     public Battle addBattle(Battle battle) {
-        //TODO: etsi jos vanhalla battlella jo sama compatId
+        Battle oldBattle = battleRepository.findByCompatId(battle.getCompatId());
+        if (oldBattle == null) {
+            oldBattle = battle;
+        } else {
+            oldBattle.setRounds(battle.getRounds());
+            oldBattle.setTime(battle.getTime());
+        }
         List<Troop> troops = new ArrayList<>();
-        for (Troop troop : battle.getTroops()) {
+            for (Troop troop : battle.getTroops()) {
             troop.setUnits(unitRepository.save(troop.getUnits()));
             troops.add(troop);
         }
-        battle.setTroops(troopRepository.save(troops));
-        battle.setLoot(resourcesRepository.save(battle.getLoot()));
-        return battleRepository.save(battle);
+        oldBattle.setTroops(troopRepository.save(troops));
+        oldBattle.setLoot(resourcesRepository.save(battle.getLoot()));
+        return battleRepository.save(oldBattle);
     }
 
     public Battle findOne(Long id) {
