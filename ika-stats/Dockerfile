@@ -21,12 +21,11 @@ RUN npm install
 
 RUN mkdir -p /code/src/main
 ADD src/main/java /code/src/main/java
+ADD src/main/resources /code/src/main/resources
 RUN mvn verify
 RUN mvn clean compile
 
 ADD src/main/webapp /code/src/main/webapp
 RUN node_modules/gulp/bin/gulp.js build
-
-ADD src/main/resources /code/src/main/resources
 
 CMD mvn exec:java
