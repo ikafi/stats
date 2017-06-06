@@ -2,6 +2,8 @@ package fi.gosu.ika.stats.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.*;
@@ -20,6 +22,7 @@ public class SpyReport extends AbstractPersistable<Long> {
     private Long townId;
     @OneToOne
     @JoinColumn(name="townId", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "none", value = ConstraintMode.NO_CONSTRAINT))
+    @NotFound(action = NotFoundAction.IGNORE)
     private Town town;
     private String playerName;
     private String alliance;
