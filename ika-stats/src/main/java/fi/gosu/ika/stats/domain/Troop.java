@@ -3,6 +3,7 @@ package fi.gosu.ika.stats.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ import java.util.List;
 public class Troop extends AbstractPersistable<Long> {
     private String owner;
     private TYPE type;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Unit> units;
 
     public Troop() {

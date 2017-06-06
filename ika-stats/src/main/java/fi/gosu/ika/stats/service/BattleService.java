@@ -37,9 +37,19 @@ public class BattleService {
         } else {
             oldBattle.setRounds(battle.getRounds());
             oldBattle.setTime(battle.getTime());
+            for (String event : battle.getEvents()) {
+                if (!oldBattle.getEvents().contains(event)) oldBattle.getEvents().add(event);
+            }
+            for (String attacker : battle.getAttacker()) {
+                if (!oldBattle.getAttacker().contains(attacker)) oldBattle.getAttacker().add(attacker);
+            }
+            for (String defender : battle.getDefender()) {
+                if (!oldBattle.getDefender().contains(defender)) oldBattle.getDefender().add(defender);
+            }
         }
+        troopRepository.delete(battle.getTroops());
         List<Troop> troops = new ArrayList<>();
-            for (Troop troop : battle.getTroops()) {
+        for (Troop troop : battle.getTroops()) {
             troop.setUnits(unitRepository.save(troop.getUnits()));
             troops.add(troop);
         }
