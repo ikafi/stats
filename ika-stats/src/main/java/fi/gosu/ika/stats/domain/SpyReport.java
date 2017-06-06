@@ -6,6 +6,8 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import java.util.Date;
 
 /**
@@ -18,8 +20,9 @@ import java.util.Date;
 public class SpyReport extends AbstractPersistable<Long> {
 
     private Long spyReportId;
-    @Column(name="townId")
     private Long townId;
+    @OneToOne
+    @JoinColumn(name="townId", insertable = false, updatable = false)
     private Town town;
     private String playerName;
     private String alliance;
