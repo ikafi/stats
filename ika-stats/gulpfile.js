@@ -6,7 +6,7 @@ var source      = require('vinyl-source-stream');
 var WEB_ROOT = 'src/main/webapp/';
 
 gulp.task('js', function() {
-    browserify({ entries: WEB_ROOT + 'assets/js/src/app.js' })
+    browserify({ entries: WEB_ROOT + 'assets/js/src/App.js' })
         .transform("babelify", {presets: ["es2015", "react"]})
         .bundle()
         .pipe(source('bundle.js'))
