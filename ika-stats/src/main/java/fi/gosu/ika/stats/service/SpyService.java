@@ -27,7 +27,11 @@ public class SpyService {
     public List<Town> findAllTowns() { return townRepository.findAll();}
 
     public SpyReport addSpyReport(SpyReport spyReport) {
-        return spyReportRepository.save(spyReport);
+        SpyReport oldSpyReport = spyReportRepository.findBySpyReportId(spyReport.getSpyReportId());
+        if (oldSpyReport == null) {
+            return spyReportRepository.save(spyReport);
+        }
+        return null;
     }
     public Town addTown(Town town) {
         return townRepository.save(town);

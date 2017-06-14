@@ -10,4 +10,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @since 0.1.0
  */
 public interface SpyReportRepository extends JpaRepository<SpyReport, Long> {
+
+    SpyReport findBySpyReportId(Long spyReportId);
 }
