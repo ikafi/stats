@@ -18,7 +18,9 @@ import java.util.Date;
 @Entity
 public class SpyReport extends AbstractPersistable<Long> {
 
+    @Column(unique=true)
     private Long spyReportId;
+    @Column(unique=true)
     private Long townId;
     @OneToOne
     @JoinColumn(name="townId", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "none", value = ConstraintMode.NO_CONSTRAINT))
