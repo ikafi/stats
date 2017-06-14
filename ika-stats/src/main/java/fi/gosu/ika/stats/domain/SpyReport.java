@@ -18,6 +18,7 @@ import java.util.Date;
 @Entity
 public class SpyReport extends AbstractPersistable<Long> {
 
+    @Column(unique=true)
     private Long spyReportId;
     @Column(unique=true)
     private Long townId;
