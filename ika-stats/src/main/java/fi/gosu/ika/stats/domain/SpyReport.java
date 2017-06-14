@@ -28,6 +28,7 @@ public class SpyReport extends AbstractPersistable<Long> {
     private String alliance;
     private String townName;
     private String coordinates;
+    private boolean inactive;
     private int warehouseLvl;
     private int wallLvl;
     private int robberyLimit;
@@ -67,6 +68,10 @@ public class SpyReport extends AbstractPersistable<Long> {
 
     public String getCoordinates() {
         return coordinates;
+    }
+
+    public boolean getInactive(){
+        return inactive;
     }
 
     public int getWarehouseLvl() {
@@ -156,6 +161,10 @@ public class SpyReport extends AbstractPersistable<Long> {
 
     public void setCoordinates(String coordinates) {
         this.coordinates = coordinates;
+    }
+
+    public void setInactive(Boolean inactive) {
+        this.inactive = inactive;
     }
 
     public void setWarehouseLvl(int warehouseLvl) {
