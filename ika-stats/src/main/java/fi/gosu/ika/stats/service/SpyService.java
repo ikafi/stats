@@ -33,8 +33,19 @@ public class SpyService {
         }
         return null;
     }
+
     public Town addTown(Town town) {
         return townRepository.save(town);
+    }
+
+    public Town addTownLvls(Long id, int wallLvl, int warehouseLvl) {
+        Town town = townRepository.findOne(id);
+        if (town != null) {
+            town.setWallLvl(wallLvl);
+            town.setWarehouseLvl(warehouseLvl);
+            return townRepository.save(town);
+        }
+        return null;
     }
 
     public SpyReport findOneReport(Long id) {

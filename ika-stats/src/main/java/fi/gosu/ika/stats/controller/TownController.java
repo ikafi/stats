@@ -41,4 +41,8 @@ public class TownController {
     public Town delete(@PathVariable Long id) {
         throw new TownDeleteForbiddenException();
     }
+
+    @RequestMapping(value = "{id}/addLvlInfo", method = RequestMethod.POST)
+    public Town addTownLvls(@PathVariable Long id,@RequestParam("wallLvl") int wallLvl, @RequestParam("warehouseLvl") int warehouseLvl)
+    {return spyService.addTownLvls(id, wallLvl, warehouseLvl);}
 }
