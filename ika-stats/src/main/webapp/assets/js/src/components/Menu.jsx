@@ -3,19 +3,21 @@
  */
 
 import React from 'react';
+import createReactClass from 'create-react-class';
 import { slide as Menu } from 'react-burger-menu'
+import { Link } from 'react-router-dom';
 
-var MyMenu = React.createClass({
+var MyMenu = createReactClass({
     render: function() {
         return (
             <Menu>
                 <ul>
-                    <li>Taistelut</li>
-                    <li>Vakoojaraportit</li>
+                    <li><Link to='/'>Etusivu</Link></li>
+                    <li><Link to='/battle/'>Taistelut</Link></li>
                 </ul>
             </Menu>
         );
     }
-})
+});
 
 module.exports = MyMenu;

@@ -10,10 +10,15 @@ body {
 }
 #app {
   min-height: 100%;
+}
+.outer-wrapper {
+  min-height: 100%;
+}
+.background-image {
   background: #293A3F url("https://fi.ikariam.gameforge.com/cdn/img/wallpapers/group_1600.jpg");
   -webkit-background-size: cover;
   background-size: cover;
-}
-.outer-wrapper {
+  width: 100%;
   height: 100%;
+  position: fixed;
 }

@@ -3,21 +3,30 @@
  */
 
 import React from 'react';
+import createReactClass from 'create-react-class';
 import ReactDOM from 'react-dom';
-import MyMenu from './components/Menu.jsx';
+import { HashRouter, Route } from 'react-router-dom';
 
-var App = React.createClass({
+import Home from './pages/Home';
+import BattleList from './pages/BattleList';
+
+import MyMenu from './components/Menu';
+
+var App = createReactClass({
     render: function () {
         return (
-            <div className="outer-wrapper">
-                <MyMenu />
-                <main>
-                    {/* TODO */}
-                </main>
-            </div>
+            <HashRouter>
+                <div className="outer-wrapper">
+                    <MyMenu />
+                    <main>
+                        <Route exact path='/' component={Home} />
+                        <Route path='/battle' component={BattleList} />
+                    </main>
+                </div>
+            </HashRouter>
         )
     }
-})
+});
 
 ReactDOM.render(
     <App />,

@@ -8,9 +8,10 @@
   height: 30px;
   left: 36px;
   top: 36px;
-}
-.bm-burger-button button {
-  cursor: pointer;
+
+  button {
+    cursor: pointer;
+  }
 }
 .bm-burger-bars {
   background: #373a47;
@@ -21,15 +22,22 @@
 }
 .bm-item-list {
   margin-top: 30px;
-}
-.bm-item-list li {
-  list-style-type: none;
-  font-size: 24px;
-  color: #FFF;
-  padding: 10px 0;
-  user-select: none;
-}
-.bm-item-list li:hover {
-  color: crimson;
-  cursor: pointer;
+
+  li {
+    list-style-type: none;
+    font-size: 24px;
+    padding: 10px 0;
+    user-select: none;
+  }
+
+
+  a {
+    text-decoration: none;
+    color: #FFF;
+
+    &:hover {
+      color: crimson;
+      cursor: pointer;
+    }
+  }
 }
