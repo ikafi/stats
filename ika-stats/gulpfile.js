@@ -11,7 +11,10 @@ var streamify    = require('gulp-streamify');
 var WEB_ROOT = 'src/main/webapp/';
 
 gulp.task('js', function() {
-    browserify({ entries: WEB_ROOT + 'assets/js/src/App.js' })
+    browserify({
+        entries: WEB_ROOT + 'assets/js/src/App.js',
+        extensions: '.jsx'
+    })
         .transform("babelify", {presets: ["es2015", "react"]})
         .bundle()
         .pipe(source('bundle.min.js'))
