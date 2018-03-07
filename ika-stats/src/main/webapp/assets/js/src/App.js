@@ -11,7 +11,7 @@ import { HashRouter, Route } from 'react-router-dom';
 // importataan sivut
 import Home from './pages/Home';
 import BattleList from './pages/BattleList';
-// TODO: lisää spyreportlist
+import SpyReport from './pages/SpyReport';
 
 // importataan komponentit
 import MyMenu from './components/Menu';
@@ -34,7 +34,8 @@ var App = createReactClass({
                         {/* Taistelulista-sivu, /#/battle/, renderöi sivun /pages/BattleList.jsx:n perusteella  */}
                         <Route path='/battle' component={BattleList} />
 
-                        {/* TODO: lisää route /spyreport tms osoitteelle ja määrittele component:ksi ylhäällä importattu spyreportlist tms */}
+                        {/* SpyReport sivu, /#/spyreport/, renderöi sivun /pages/SpyReport.jsx:n perusteella */}
+                        <Route path='/spyreport' component={SpyReport} />
                     </main>
                 </div>
             </HashRouter>

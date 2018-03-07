@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * SpyReport Service
+ * SpyReport.jsx Service
  *
  * @author Joppe151617
  * @since 0.1.0

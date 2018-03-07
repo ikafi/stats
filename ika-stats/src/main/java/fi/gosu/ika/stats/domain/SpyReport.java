@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * SpyReport Class
+ * SpyReport.jsx Class
  *
  * @author Joppe151617
  * @since 0.1.0
@@ -41,7 +41,7 @@ public class SpyReport extends AbstractPersistable<Long> {
     private int sulphur;
     //robbable tells how much resources can be robbed.
     private int robbable;
-    @JsonFormat(pattern="dd.MM.yyyy hh:mm:ss")
+    @JsonFormat(pattern="dd.MM.yyyy HH:mm:ss")
     private Date time;
 
     public Long getSpyReportId() {
@@ -111,7 +111,7 @@ public class SpyReport extends AbstractPersistable<Long> {
 
     public int getRobbable() {
         int x = 0;
-        int stealable = getRobberyLimit();
+        int stealable = 100;//getRobberyLimit();
         if(this.wood > stealable) {
             x = x + (this.wood - stealable);
         }
