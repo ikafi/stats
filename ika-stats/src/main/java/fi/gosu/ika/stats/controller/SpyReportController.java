@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * SpyReport Controller
+ * SpyReport.jsx Controller
  *
  * @author Joppe151617
  * @since 0.1.0

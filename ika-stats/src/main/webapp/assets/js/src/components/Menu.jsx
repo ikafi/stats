@@ -17,6 +17,7 @@ var MyMenu = createReactClass({
                 <ul>
                     <li><Link to='/'>Etusivu</Link></li>
                     <li><Link to='/battle/'>Taistelut</Link></li>
+                    <li><Link to='/spyreport/'>SpyRaportit</Link></li>
                 </ul>
             </Menu>
         );
