@@ -85,8 +85,12 @@ public class SpyReport extends AbstractPersistable<Long> {
     }
 
     public int getRobberyLimit() {
-        this.robberyLimit = 100+this.warehouseLvl*480;
-        return robberyLimit;
+        if(this.town != null) {
+            this.robberyLimit = this.town.getWarehouseLvl() * 480;
+            return robberyLimit;
+        } else {
+            return robberyLimit = 100;
+        }
     }
 
     public int getWood() {
@@ -111,7 +115,7 @@ public class SpyReport extends AbstractPersistable<Long> {
 
     public int getRobbable() {
         int x = 0;
-        int stealable = 100;//getRobberyLimit();
+        int stealable = getRobberyLimit();
         if(this.wood > stealable) {
             x = x + (this.wood - stealable);
         }
