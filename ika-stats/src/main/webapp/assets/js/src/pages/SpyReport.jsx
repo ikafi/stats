@@ -39,285 +39,38 @@ var SpyReport = createReactClass({
     render: function () {
         {/* Luodaan lista raporteista */}
         return (
-            <div className="all-container">
+            <div className="container">
                 <div className="report-title">
                     <h1>Raportit</h1>
                 </div>
-                    <div className="spy-container">
-                        <div className="report-list">
-                            <ul>
-                                <div className="list-title">
-                                     <span className="name">Pelaajaa</span>
-                                </div>
-                                    {
-                                        /* Käydään lista läpi map-funktion avulla, jokainen alkio muuntuu <li>kaupungin nimi - aika</li> */
-                                        this.state.reports.map(function(spyreport) {
-                                        return (
-                                            <li key={spyreport.id}>
-                                                <Link to={'/spyreport/' + spyreport.id}>
-                                                    <span className="name">{spyreport.playerName}</span>
-                                                </Link>
-                                            </li>
-                                        )
-                                        })
-                                    }
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="spy-container">
-                        <div className="report-list">
-                            <ul>
-                                <div className="list-title">
-                                    <span className="townname">Kaupunki</span>
-                                </div>
-                                {
-                                    /* Käydään lista läpi map-funktion avulla, jokainen alkio muuntuu <li>kaupungin nimi - aika</li> */
-                                    this.state.reports.map(function(spyreport) {
-                                        return (
-                                            <li key={spyreport.id}>
-                                                <Link to={'/spyreport/' + spyreport.id}>
-                                                    <span className="townname">{spyreport.townName}</span>
-                                                </Link>
-                                            </li>
-                                        )
-                                    })
-                                }
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div className="spy-container">
-                        <div className="report-list">
-                            <ul>
-                                <div className="list-title">
-                                     <span className="coords">X:Y</span>
-                                </div>
-                                    {
-                                        /* Käydään lista läpi map-funktion avulla, jokainen alkio muuntuu <li>kaupungin nimi - aika</li> */
-                                        this.state.reports.map(function(spyreport) {
-                                        return (
-                                            <li key={spyreport.id}>
-                                                <Link to={'/spyreport/' + spyreport.id}>
-                                                    <span className="coords">{spyreport.coordinates}</span>
-                                                </Link>
-                                            </li>
-                                        )
-                                        })
-                                    }
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="spy-container">
-                        <div className="report-list">
-                            <ul>
-                                <div className="list-title">
-                                     <span className="warehouse">Varasto</span>
-                                </div>
-                                    {
-                                        /* Käydään lista läpi map-funktion avulla, jokainen alkio muuntuu <li>kaupungin nimi - aika</li> */
-                                        this.state.reports.map(function(spyreport) {
-                                        return (
-                                            <li key={spyreport.id}>
-                                                <Link to={'/spyreport/' + spyreport.id}>
-                                                    <span className="warehouse">{spyreport.warehouseLvl}</span>
-                                                </Link>
-                                            </li>
-                                        )
-                                        })
-                                    }
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="spy-container">
-                        <div className="report-list">
-                            <ul>
-                                <div className="list-title">
-                                     <span className="wall">Muuri</span>
-                                </div>
-                                    {
-                                        /* Käydään lista läpi map-funktion avulla, jokainen alkio muuntuu <li>kaupungin nimi - aika</li> */
-                                        this.state.reports.map(function(spyreport) {
-                                        return (
-                                            <li key={spyreport.id}>
-                                                <Link to={'/spyreport/' + spyreport.id}>
-                                                    <span className="wall">{spyreport.wallLvl}</span>
-                                                </Link>
-                                            </li>
-                                        )
-                                        })
-                                    }
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="spy-container">
-                        <div className="report-list">
-                            <ul>
-                                <div className="list-title">
-                                     <span className="robbery">Ryöstöraja</span>
-                                </div>
-                                    {
-                                        /* Käydään lista läpi map-funktion avulla, jokainen alkio muuntuu <li>kaupungin nimi - aika</li> */
-                                        this.state.reports.map(function(spyreport) {
-                                        return (
-                                            <li key={spyreport.id}>
-                                                <Link to={'/spyreport/' + spyreport.id}>
-                                                    <span className="robbery">{spyreport.robberyLimit}</span>
-                                                </Link>
-                                            </li>
-                                        )
-                                        })
-                                    }
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="spy-container">
-                        <div className="report-list">
-                            <ul>
-                                <div className="list-title">
-                                     <span className="wood">Puu</span>
-                                </div>
-                                    {
-                                        /* Käydään lista läpi map-funktion avulla, jokainen alkio muuntuu <li>kaupungin nimi - aika</li> */
-                                        this.state.reports.map(function(spyreport) {
-                                        return (
-                                            <li key={spyreport.id}>
-                                                <Link to={'/spyreport/' + spyreport.id}>
-                                                    <span className="wood">{spyreport.wood}</span>
-                                                </Link>
-                                            </li>
-                                        )
-                                        })
-                                    }
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="spy-container">
-                        <div className="report-list">
-                            <ul>
-                                <div className="list-title">
-                                     <span className="wine">Viini</span>
-                                </div>
-                                    {
-                                        /* Käydään lista läpi map-funktion avulla, jokainen alkio muuntuu <li>kaupungin nimi - aika</li> */
-                                        this.state.reports.map(function(spyreport) {
-                                        return (
-                                            <li key={spyreport.id}>
-                                                <Link to={'/spyreport/' + spyreport.id}>
-                                                    <span className="wine">{spyreport.wine}</span>
-                                                </Link>
-                                            </li>
-                                        )
-                                        })
-                                    }
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="spy-container">
-                        <div className="report-list">
-                            <ul>
-                                <div className="list-title">
-                                     <span className="marble">Marmori</span>
-                                </div>
-                                    {
-                                        /* Käydään lista läpi map-funktion avulla, jokainen alkio muuntuu <li>kaupungin nimi - aika</li> */
-                                        this.state.reports.map(function(spyreport) {
-                                        return (
-                                            <li key={spyreport.id}>
-                                                <Link to={'/spyreport/' + spyreport.id}>
-                                                    <span className="marble">{spyreport.marble}</span>
-                                                </Link>
-                                            </li>
-                                        )
-                                        })
-                                    }
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="spy-container">
-                        <div className="report-list">
-                            <ul>
-                                <div className="list-title">
-                                     <span className="crystal">Lasi</span>
-                                </div>
-                                    {
-                                        /* Käydään lista läpi map-funktion avulla, jokainen alkio muuntuu <li>kaupungin nimi - aika</li> */
-                                        this.state.reports.map(function(spyreport) {
-                                        return (
-                                            <li key={spyreport.id}>
-                                                <Link to={'/spyreport/' + spyreport.id}>
-                                                    <span className="crystal">{spyreport.crystal}</span>
-                                                </Link>
-                                            </li>
-                                        )
-                                        })
-                                    }
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="spy-container">
-                        <div className="report-list">
-                            <ul>
-                                <div className="list-title">
-                                     <span className="sulphur">Rikki</span>
-                                </div>
-                                    {
-                                        /* Käydään lista läpi map-funktion avulla, jokainen alkio muuntuu <li>kaupungin nimi - aika</li> */
-                                        this.state.reports.map(function(spyreport) {
-                                        return (
-                                            <li key={spyreport.id}>
-                                                <Link to={'/spyreport/' + spyreport.id}>
-                                                    <span className="sulphur">{spyreport.sulphur}</span>
-                                                </Link>
-                                            </li>
-                                        )
-                                        })
-                                    }
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="spy-container">
-                        <div className="report-list">
-                            <ul>
-                                <div className="list-title">
-                                     <span className="robbable">Ryöstettävissä</span>
-                                </div>
-                                    {
-                                        /* Käydään lista läpi map-funktion avulla, jokainen alkio muuntuu <li>kaupungin nimi - aika</li> */
-                                        this.state.reports.map(function(spyreport) {
-                                        return (
-                                            <li key={spyreport.id}>
-                                                <Link to={'/spyreport/' + spyreport.id}>
-                                                    <span className="robbable">{spyreport.robbable}</span>
-                                                </Link>
-                                            </li>
-                                        )
-                                        })
-                                    }
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="spy-container">
-                        <div className="report-list">
-                            <ul>
-                                <div className="list-title">
-                                     <span className="time">Aika</span>
-                                </div>
-                                    {
-                                        /* Käydään lista läpi map-funktion avulla, jokainen alkio muuntuu <li>kaupungin nimi - aika</li> */
-                                        this.state.reports.map(function(spyreport) {
-                                        return (
-                                            <li key={spyreport.id}>
-                                                <Link to={'/spyreport/' + spyreport.id}>
-                                                    <span className="time">{spyreport.time}</span>
-                                                </Link>
-                                            </li>
-                                        )
-                                        })
-                                    }
-                            </ul>
-                        </div>
-                    </div>
-
+                <div className="report-list">
+                    <ul>
+                        {
+                            /* Käydään lista läpi map-funktion avulla, jokainen alkio muuntuu <li>kaupungin nimi - aika</li> */
+                            this.state.reports.map(function(spyreport) {
+                                return (
+                                    <li key={spyreport.id}>
+                                        <Link to={'/spyreport/' + spyreport.id}>
+                                            <span className="name">{spyreport.playerName}</span>
+                                            <span className="townname">{spyreport.townName}</span>
+                                            <span className="coords">{spyreport.coordinates}</span>
+                                            <span className="warehouse">{spyreport.town != null ? spyreport.town.warehouseLvl : "ei tiedossa"}</span>
+                                            <span className="wall">{spyreport.town != null ? spyreport.town.wallLvl : "ei tiedossa"}</span>
+                                            <span className="robbery">{spyreport.robberyLimit}</span>
+                                            <span className="wood">{spyreport.wood}</span>
+                                            <span className="wine">{spyreport.wine}</span>
+                                            <span className="marble">{spyreport.marble}</span>
+                                            <span className="crystal">{spyreport.crystal}</span>
+                                            <span className="sulphur">{spyreport.sulphur}</span>
+                                            <span className="robbable">{spyreport.robbable}</span>
+                                            <span className="time">{spyreport.time}</span>
+                                        </Link>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
+                </div>
             </div>
         )
     }
