@@ -42,6 +42,21 @@ var SpyReport = createReactClass({
             <div className="container">
                 <div className="report-title">
                     <h1>Raportit</h1>
+                    <div className="grid">
+                        <div className="name">Nimi</div>
+                        <div className="townname">Kaupingin nimi</div>
+                        <div className="coords">Koordit</div>
+                        <div className="warehouse">Varasto</div>
+                        <div className="wall">Muuri</div>
+                        <div className="robbery">Ryöstöraja</div>
+                        <div className="wood">Puu</div>
+                        <div className="wine">Viini</div>
+                        <div className="marble">Marmori</div>
+                        <div className="crystal">Lasi</div>
+                        <div className="sulphur">Rikki</div>
+                        <div className="robbable">Ryös.Yht.</div>
+                        <div className="time">Aika</div>
+                    </div>
                 </div>
                 <div className="report-list">
                     <ul>
@@ -51,19 +66,21 @@ var SpyReport = createReactClass({
                                 return (
                                     <li key={spyreport.id}>
                                         <Link to={'/spyreport/' + spyreport.id}>
-                                            <span className="name">{spyreport.playerName}</span>
-                                            <span className="townname">{spyreport.townName}</span>
-                                            <span className="coords">{spyreport.coordinates}</span>
-                                            <span className="warehouse">{spyreport.town != null ? spyreport.town.warehouseLvl : "ei tiedossa"}</span>
-                                            <span className="wall">{spyreport.town != null ? spyreport.town.wallLvl : "ei tiedossa"}</span>
-                                            <span className="robbery">{spyreport.robberyLimit}</span>
-                                            <span className="wood">{spyreport.wood}</span>
-                                            <span className="wine">{spyreport.wine}</span>
-                                            <span className="marble">{spyreport.marble}</span>
-                                            <span className="crystal">{spyreport.crystal}</span>
-                                            <span className="sulphur">{spyreport.sulphur}</span>
-                                            <span className="robbable">{spyreport.robbable}</span>
-                                            <span className="time">{spyreport.time}</span>
+                                            <div className="grid">
+                                                <div className="name">{spyreport.playerName}</div>
+                                                <div className="townname">{spyreport.townName}</div>
+                                                <div className="coords">{spyreport.coordinates}</div>
+                                                <div className="warehouse">{spyreport.town != null ? spyreport.town.warehouseLvl : "ei tiedossa"}</div>
+                                                <div className="wall">{spyreport.town != null ? spyreport.town.wallLvl : "ei tiedossa"}</div>
+                                                <div className="robbery">{spyreport.robberyLimit}</div>
+                                                <div className="wood">{spyreport.wood}</div>
+                                                <div className="wine">{spyreport.wine}</div>
+                                                <div className="marble">{spyreport.marble}</div>
+                                                <div className="crystal">{spyreport.crystal}</div>
+                                                <div className="sulphur">{spyreport.sulphur}</div>
+                                                <div className="robbable">{spyreport.robbable}</div>
+                                                <div className="time">{spyreport.time}</div>
+                                            </div>
                                         </Link>
                                     </li>
                                 )

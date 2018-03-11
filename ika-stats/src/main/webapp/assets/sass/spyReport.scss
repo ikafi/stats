@@ -1,5 +1,5 @@
 .container {
-  width: 800px;
+  width: 1001px;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -7,8 +7,21 @@
 }
 
 .report-title {
-    padding: 30px;
+    font-weight: bold;
     text-align: center;
+    background-color: #808080;
+}
+
+.grid {
+    display: grid;
+    width: 1001px;
+    grid-template-columns: repeat(13, 77px);
+    grid-auto-rows: 40px;
+
+    div {
+        background-color: #a6a6a6;
+        border: 1px black solid;
+    }
 }
 
 .report-list {
@@ -16,71 +29,5 @@
         margin: 0;
         padding: 0;
         list-style: none;
-    }
-    li {
-        border-radius: 5px;
-        border: 1px solid;
-        padding: 10px;
-        font-size: 22px;
-        position: relative;
-        height: 35px;
-
-        &:nth-child(odd) {
-          background-color: #f2d00d;
-        }
-        &:nth-child(even) {
-          background-color: #d9be26;
-        }
-
-        a {
-          padding: 5px 20px;
-          position:absolute;
-          top:0;
-          left:0;
-          width:95%;
-          height:25px;
-          text-decoration: none;
-          color: black;
-        }
-
-        .name {
-
-        }
-        .townname {
-
-        }
-        .coords {
-          margin-left: 30px;
-        }
-        .warehouse {
-          margin-left: 10px;
-        }
-        .wall {
-          margin-left: 20px;
-        }
-        .robbery {
-          margin-left: 20px;
-        }
-        .wood {
-          margin-left: 20px;
-        }
-        .wine {
-          margin-left: 20px;
-        }
-        .marble {
-          margin-left: 20px;
-        }
-        .crystal {
-          margin-left: 20px;
-        }
-        .sulphur {
-          margin-left: 20px;
-        }
-        .robbable {
-          margin-left: 20px;
-        }
-        .time {
-
-        }
     }
 }
