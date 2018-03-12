@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * SpyReport Class
+ * SpyReport.jsx Class
  *
  * @author Joppe151617
  * @since 0.1.0
