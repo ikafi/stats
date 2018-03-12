@@ -22,7 +22,7 @@ public class SpyReport extends AbstractPersistable<Long> {
     private Long spyReportId;
     @Column(unique = true)
     private Long townId;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "townId", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "none", value = ConstraintMode.NO_CONSTRAINT))
     @NotFound(action = NotFoundAction.IGNORE)
     private Town town;
