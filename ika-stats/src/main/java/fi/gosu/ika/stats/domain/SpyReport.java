@@ -18,12 +18,12 @@ import java.util.Date;
 @Entity
 public class SpyReport extends AbstractPersistable<Long> {
 
-    @Column(unique=true)
+    @Column(unique = true)
     private Long spyReportId;
-    @Column(unique=true)
+    @Column(unique = true)
     private Long townId;
     @OneToOne
-    @JoinColumn(name="townId", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "none", value = ConstraintMode.NO_CONSTRAINT))
+    @JoinColumn(name = "townId", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "none", value = ConstraintMode.NO_CONSTRAINT))
     @NotFound(action = NotFoundAction.IGNORE)
     private Town town;
     private String playerName;
@@ -41,7 +41,7 @@ public class SpyReport extends AbstractPersistable<Long> {
     private int sulphur;
     //robbable tells how much resources can be robbed.
     private int robbable;
-    @JsonFormat(pattern="dd.MM.yyyy HH:mm:ss")
+    @JsonFormat(pattern = "dd.MM.yyyy HH:mm:ss")
     private Date time;
 
     public Long getSpyReportId() {
@@ -72,7 +72,7 @@ public class SpyReport extends AbstractPersistable<Long> {
         return coordinates;
     }
 
-    public boolean getInactive(){
+    public boolean getInactive() {
         return inactive;
     }
 
@@ -85,7 +85,7 @@ public class SpyReport extends AbstractPersistable<Long> {
     }
 
     public int getRobberyLimit() {
-        if(this.town != null) {
+        if (this.town != null) {
             this.robberyLimit = this.town.getWarehouseLvl() * 480;
             return robberyLimit;
         } else {
@@ -116,19 +116,19 @@ public class SpyReport extends AbstractPersistable<Long> {
     public int getRobbable() {
         int x = 0;
         int stealable = getRobberyLimit();
-        if(this.wood > stealable) {
+        if (this.wood > stealable) {
             x = x + (this.wood - stealable);
         }
-        if(this.wine > stealable) {
+        if (this.wine > stealable) {
             x = x + (this.wine - stealable);
         }
-        if(this.marble > stealable) {
+        if (this.marble > stealable) {
             x = x + (this.marble - stealable);
         }
-        if(this.crystal > stealable) {
+        if (this.crystal > stealable) {
             x = x + (this.crystal - stealable);
         }
-        if(this.sulphur > stealable) {
+        if (this.sulphur > stealable) {
             x = x + (this.sulphur - stealable);
         }
         this.robbable = x;
@@ -138,7 +138,6 @@ public class SpyReport extends AbstractPersistable<Long> {
     public Date getTime() {
         return time;
     }
-
 
 
     public void setSpyReportId(Long spyReportId) {

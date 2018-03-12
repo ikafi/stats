@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "description": "",
   "author": "Ville Nupponen <aikain@gosu.fi>",
-  "dependencies": {},
+  "dependencies": {
+    "datatables.net": "^1.10.16",
+    "jquery": "^3.3.1"
+  },
   "devDependencies": {
     "axios": "^0.16.2",
     "babel-preset-es2015": "6.3.13",

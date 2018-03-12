@@ -2,6 +2,10 @@
  * Created by Joppe151617 on 15.8.2017.
  */
 
+//lisätään datatables.net
+const $ = require('jquery');
+$.DataTable = require('datatables.net')();
+
 // importataan kirjastot
 import React from 'react';
 import createReactClass from 'create-react-class';
@@ -30,7 +34,9 @@ var SpyReport = createReactClass({
             _this.setState({
                 reports: result.data
             });
+            $('#report_table').DataTable();
         })
+
     },
     componentWillUnmount: function() {
         {/* Perutaan hakeminen jos sivu suljetaan */}
@@ -42,55 +48,52 @@ var SpyReport = createReactClass({
             <div className="container">
                 <div className="report-title">
                     <h1>Raportit</h1>
-                    <div className="grid">
-                        <div className="name">Nimi</div>
-                        <div className="townname">Kaupingin nimi</div>
-                        <div className="coords">Koordit</div>
-                        <div className="warehouse">Varasto</div>
-                        <div className="wall">Muuri</div>
-                        <div className="robbery">Ryöstöraja</div>
-                        <div className="wood">Puu</div>
-                        <div className="wine">Viini</div>
-                        <div className="marble">Marmori</div>
-                        <div className="crystal">Lasi</div>
-                        <div className="sulphur">Rikki</div>
-                        <div className="robbable">Ryös.Yht.</div>
-                        <div className="time">Aika</div>
-                    </div>
                 </div>
-                <div className="report-list">
-                    <ul>
-                        {
-                            /* Käydään lista läpi map-funktion avulla, jokainen alkio muuntuu <li>kaupungin nimi - aika</li> */
-                            this.state.reports.map(function(spyreport) {
-                                return (
-                                    <li key={spyreport.id}>
-                                        <Link to={'/spyreport/' + spyreport.id}>
-                                            <div className="grid">
-                                                <div className="name">{spyreport.playerName}</div>
-                                                <div className="townname">{spyreport.townName}</div>
-                                                <div className="coords">{spyreport.coordinates}</div>
-                                                <div className="warehouse">{spyreport.town != null ? spyreport.town.warehouseLvl : "ei tiedossa"}</div>
-                                                <div className="wall">{spyreport.town != null ? spyreport.town.wallLvl : "ei tiedossa"}</div>
-                                                <div className="robbery">{spyreport.robberyLimit}</div>
-                                                <div className="wood">{spyreport.wood}</div>
-                                                <div className="wine">{spyreport.wine}</div>
-                                                <div className="marble">{spyreport.marble}</div>
-                                                <div className="crystal">{spyreport.crystal}</div>
-                                                <div className="sulphur">{spyreport.sulphur}</div>
-                                                <div className="robbable">{spyreport.robbable}</div>
-                                                <div className="time">{spyreport.time}</div>
-                                            </div>
-                                        </Link>
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul>
-                </div>
+                <table id="report_table">
+                    <thead>
+                        <tr>
+                            <th>Nimi</th>
+                            <th>Kaupungin nimi</th>
+                            <th>Koordit</th>
+                            <th>Varasto</th>
+                            <th>Muuri</th>
+                            <th>Ryöstöraja</th>
+                            <th>Puu</th>
+                            <th>Viini</th>
+                            <th>Marmori</th>
+                            <th>Lasi</th>
+                            <th>Rikki</th>
+                            <th>Ryös.Yht.</th>
+                            <th>Aika</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {
+                        /* Käydään lista läpi map-funktion avulla, jokainen alkio muuntuu <li>kaupungin nimi - aika</li> */
+                        this.state.reports.map(function(spyreport) {
+                            return (
+                                <tr>
+                                    <td className="name">{spyreport.playerName}</td>
+                                    <td className="townname">{spyreport.townName}</td>
+                                    <td className="coords">{spyreport.coordinates}</td>
+                                    <td className="warehouse">{spyreport.town != null ? spyreport.town.warehouseLvl : "ei tiedossa"}</td>
+                                    <td className="wall">{spyreport.town != null ? spyreport.town.wallLvl : "ei tiedossa"}</td>
+                                    <td className="robbery">{spyreport.robberyLimit}</td>
+                                    <td className="wood">{spyreport.wood}</td>
+                                    <td className="wine">{spyreport.wine}</td>
+                                    <td className="marble">{spyreport.marble}</td>
+                                    <td className="crystal">{spyreport.crystal}</td>
+                                    <td className="sulphur">{spyreport.sulphur}</td>
+                                    <td className="robbable">{spyreport.robbable}</td>
+                                    <td className="time">{spyreport.time}</td>
+                                </tr>
+                            )
+                        })
+                    }
+                    </tbody>
+                </table>
             </div>
         )
     }
 });
-
 module.exports = SpyReport;
